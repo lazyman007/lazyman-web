@@ -356,6 +356,7 @@ export default {
     getList() {
       this.loading = true;
       listChannel(this.queryParams).then((res) => {
+        console.log(res)
         this.channelList = res.result.records;
         this.total = res.result.total;
         this.loading = false;

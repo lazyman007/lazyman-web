@@ -54,7 +54,7 @@ service.interceptors.request.use(config => {
 service.interceptors.response.use(res => {
   if (res.data) {
     if (res.data.success) {
-      return res.data
+      return res.data.result
     } else {
       Message({
         message: res.data.message,
