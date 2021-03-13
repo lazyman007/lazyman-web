@@ -52,14 +52,19 @@ service.interceptors.request.use(config => {
 
 // 响应拦截器
 service.interceptors.response.use(res => {
-  if (res.data && res.data.success) {
-    return res.data
+  if (res.data) {
+    if (res.data.success) {
+      return res.data
+    } else {
+      Message({
+        message: res.data.message,
+        type: 'error',
+        duration: 5 * 1000
+      })
+      return Promise.reject(res)
+    }
+
   }
-  Message({
-    message: res.data.message,
-    type: 'error',
-    duration: 5 * 1000
-  })
 },
   error => {
     if (error.response && error.response.status === 401) {
@@ -73,7 +78,7 @@ service.interceptors.response.use(res => {
           location.href = '/index';
         })
       })
-    } if (error.response && error.response.status === 403) {
+    } else if (error.response && error.response.status === 403) {
       Message({
         message: "您没有权限，请联系平台管理员",
         type: 'error',
