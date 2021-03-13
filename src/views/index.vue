@@ -22,11 +22,11 @@
           >
           <br />
           阿里云服务器折扣区
-          <el-link href="http://aly.lazyman.vip" type="primary" target="_blank"
+          <el-link href="http://aly.lazyman.org" type="primary" target="_blank"
             >>☛☛点我进入☚☚</el-link
           >
           &nbsp;&nbsp;&nbsp; 腾讯云服务器秒杀区
-          <el-link href="http://txy.lazyman.vip" type="primary" target="_blank"
+          <el-link href="http://txy.lazyman.org" type="primary" target="_blank"
             >>☛☛点我进入☚☚</el-link
           ><br />
           <h4 class="text-danger">
@@ -62,7 +62,7 @@
             size="mini"
             icon="el-icon-s-home"
             plain
-            @click="goTarget('http://lazyman.vip')"
+            @click="goTarget('http://lazyman.org')"
             >访问主页</el-button
           >
         </p>
@@ -112,9 +112,9 @@
           <div class="body">
             <p>
               <i class="el-icon-s-promotion"></i> 官网：<el-link
-                href="http://www.lazyman.vip"
+                href="http://www.lazyman.org"
                 target="_blank"
-                >http://www.lazyman.vip</el-link
+                >http://www.lazyman.org</el-link
               >
             </p>
             <p>
