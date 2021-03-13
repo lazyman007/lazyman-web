@@ -6,6 +6,7 @@ import { tansParams } from "@/utils/lazyman";
 
 axios.defaults.withCredentials = true
 axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
+
 // 创建axios实例
 const service = axios.create({
   // axios中请求配置有baseURL选项，表示请求URL公共部分
@@ -63,7 +64,6 @@ service.interceptors.response.use(res => {
       })
       return Promise.reject(res)
     }
-
   }
 },
   error => {
