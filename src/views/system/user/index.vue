@@ -607,10 +607,10 @@ export default {
     this.getList();
     this.getTreeselect();
     this.getDicts("sys_normal_disable").then((res) => {
-      this.stateOptions = res.result;
+      this.stateOptions = res;
     });
     this.getDicts("sys_user_sex").then((res) => {
-      this.sexOptions = res.result;
+      this.sexOptions = res;
     });
   },
   methods: {
@@ -619,8 +619,8 @@ export default {
       this.loading = true;
       listUser(this.addDateRange(this.queryParams, this.dateRange)).then(
         (res) => {
-          this.userList = res.result.records;
-          this.total = res.result.total;
+          this.userList = res.records;
+          this.total = res.total;
           this.userList.map((item, index) => {
             item.state = item.state + "";
             return item;
@@ -635,17 +635,17 @@ export default {
     /** 查询部门下拉树结构 */
     getTreeselect() {
       treeselect().then((res) => {
-        this.deptOptions = res.result;
+        this.deptOptions = res;
       });
     },
     getRoleSelect() {
       roleOptionselect().then((res) => {
-        this.roleOptions = res.result;
+        this.roleOptions = res;
       });
     },
     getPostSelect() {
       postOptionselect().then((res) => {
-        this.postOptions = res.result;
+        this.postOptions = res;
       });
     },
     // 筛选节点
@@ -737,14 +737,14 @@ export default {
       this.getPostSelect();
       const id = row.id || this.ids;
       getUser(id).then((res) => {
-        this.form = res.result.user;
-        if (res.result.roles) {
-          this.form.roleIds = res.result.roles.map((item, index) => {
+        this.form = res.user;
+        if (res.roles) {
+          this.form.roleIds = res.roles.map((item, index) => {
             return item.id;
           });
         }
-        if (res.result.posts) {
-          this.form.postIds = res.result.posts.map((item, index) => {
+        if (res.posts) {
+          this.form.postIds = res.posts.map((item, index) => {
             return item.id;
           });
         }

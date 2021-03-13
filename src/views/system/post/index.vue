@@ -208,7 +208,7 @@ export default {
   created() {
     this.getList();
     this.getDicts("sys_normal_disable").then(res => {
-      this.stateOptions = res.result;
+      this.stateOptions = res;
     });
   },
   methods: {
@@ -216,8 +216,8 @@ export default {
     getList() {
       this.loading = true;
       listPost(this.queryParams).then(res => {
-        this.postList = res.result.records;
-        this.total = res.result.total;
+        this.postList = res.records;
+        this.total = res.total;
         this.loading = false;
       });
     },
@@ -269,7 +269,7 @@ export default {
       this.reset();
       const id = row.id || this.ids
       getPost(id).then(res => {
-        this.form = res.result;
+        this.form = res;
         this.open = true;
         this.title = "修改岗位";
         this.form.state = this.form.state + '';

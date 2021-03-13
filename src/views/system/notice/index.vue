@@ -278,10 +278,10 @@ export default {
   created() {
     this.getList();
     this.getDicts("sys_open_close").then((res) => {
-      this.statusOptions = res.result;
+      this.statusOptions = res;
     });
     this.getDicts("sys_notice_type").then((res) => {
-      this.typeOptions = res.result;
+      this.typeOptions = res;
     });
   },
   methods: {
@@ -289,8 +289,8 @@ export default {
     getList() {
       this.loading = true;
       listNotice(this.queryParams).then((res) => {
-        this.noticeList = res.result.records;
-        this.total = res.result.total;
+        this.noticeList = res.records;
+        this.total = res.total;
         this.loading = false;
       });
     },
@@ -345,7 +345,7 @@ export default {
       this.reset();
       const id = row.id || this.ids;
       getNotice(id).then((res) => {
-        this.form = res.result;
+        this.form = res;
         this.open = true;
         this.title = "修改公告";
         this.form.state = this.form.state + '';

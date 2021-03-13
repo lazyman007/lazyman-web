@@ -162,10 +162,10 @@ export default {
   created() {
     this.getList();
     this.getDicts("sms_send_state").then(res => {
-      this.stateOptions = res.result;
+      this.stateOptions = res;
     });
     this.getDicts("sms_template_category").then((res) => {
-      this.categoryOptions = res.result;
+      this.categoryOptions = res;
     });
   },
   methods: {
@@ -173,8 +173,8 @@ export default {
     getList() {
       this.loading = true;
       listTask(this.addDateRange(this.queryParams, this.dateRange)).then(res => {
-        this.taskList = res.result.records;
-        this.total = res.result.total;
+        this.taskList = res.records;
+        this.total = res.total;
         this.loading = false;
       });
     },

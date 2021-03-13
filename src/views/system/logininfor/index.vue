@@ -203,7 +203,7 @@ export default {
   created() {
     this.getList();
     this.getDicts("sys_success_fail").then((res) => {
-      this.stateOptions = res.result;
+      this.stateOptions = res;
     });
   },
   methods: {
@@ -211,8 +211,8 @@ export default {
     getList() {
       this.loading = true;
       list(this.addDateRange(this.queryParams, this.dateRange)).then((res) => {
-        this.list = res.result.records;
-        this.total = res.result.total;
+        this.list = res.records;
+        this.total = res.total;
         this.loading = false;
       });
     },

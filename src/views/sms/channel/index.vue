@@ -342,13 +342,13 @@ export default {
   created() {
     this.getList();
     this.getDicts("sys_normal_disable").then((res) => {
-      this.stateOptions = res.result;
+      this.stateOptions = res;
     });
     this.getDicts("sms_type").then((res) => {
-      this.smsTypeOptions = res.result;
+      this.smsTypeOptions = res;
     });
     this.getDicts("sms_vendor").then((res) => {
-      this.vendorOptions = res.result;
+      this.vendorOptions = res;
     });
   },
   methods: {
@@ -357,8 +357,8 @@ export default {
       this.loading = true;
       listChannel(this.queryParams).then((res) => {
         console.log(res)
-        this.channelList = res.result.records;
-        this.total = res.result.total;
+        this.channelList = res.records;
+        this.total = res.total;
         this.loading = false;
       });
     },
@@ -420,7 +420,7 @@ export default {
       this.reset();
       const id = row.id || this.ids;
       getChannel(id).then((res) => {
-        this.form = res.result;
+        this.form = res;
         this.open = true;
         this.title = "修改通道";
         this.form.state = this.form.state + "";

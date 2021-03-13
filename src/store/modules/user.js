@@ -40,7 +40,7 @@ const user = {
       const uuid = userInfo.uuid
       return new Promise((resolve, reject) => {
         login(username, password, code, uuid).then(res => {
-          let data = res.result
+          let data = res
           setToken(data.token)
           commit('SET_TOKEN', data.token)
           setExpiresIn(data.expireIn)
@@ -56,11 +56,11 @@ const user = {
     GetInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
         getInfo(state.token).then(res => {
-          const userInfo = res.result.userInfo
-          const roles = res.result.roles
+          const userInfo = res.userInfo
+          const roles = res.roles
           const avatar = require("@/assets/images/profile.jpg")
           if (roles && roles.length > 0) {
-            const permissions = res.result.permissions
+            const permissions = res.permissions
             commit('SET_ROLES', roles)
             commit('SET_PERMISSIONS', permissions)
           } else {

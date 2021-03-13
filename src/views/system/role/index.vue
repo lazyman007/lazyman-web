@@ -448,7 +448,7 @@ export default {
   created() {
     this.getList();
     this.getDicts("sys_normal_disable").then((res) => {
-      this.stateOptions = res.result;
+      this.stateOptions = res;
     });
   },
   methods: {
@@ -457,8 +457,8 @@ export default {
       this.loading = true;
       listRole(this.addDateRange(this.queryParams, this.dateRange)).then(
         (res) => {
-          this.roleList = res.result.records;
-          this.total = res.result.total;
+          this.roleList = res.records;
+          this.total = res.total;
           this.roleList.map((item, index) => {
             item.state = item.state + "";
             return item;
@@ -473,13 +473,13 @@ export default {
     /** 查询菜单树结构 */
     getMenuTreeselect() {
       menuTreeselect().then((res) => {
-        this.menuOptions = res.result;
+        this.menuOptions = res;
       });
     },
     /** 查询部门树结构 */
     getDeptTreeselect() {
       deptTreeselect().then((res) => {
-        this.deptOptions = res.result;
+        this.deptOptions = res;
       });
     },
     // 所有菜单节点数据
@@ -633,14 +633,14 @@ export default {
       this.getMenuTreeselect();
       const roleMenu = this.getRoleMenuTreeselect(id);
       getRole(id).then((res) => {
-        this.form = res.result;
+        this.form = res;
         this.open = true;
         this.title = "修改角色";
         this.form.state = this.form.state + "";
         this.$nextTick(() => {
           roleMenu.then((res) => {
-            if (res.result && res.result.length > 0) {
-              let checkedKeys = res.result;
+            if (res && res.length > 0) {
+              let checkedKeys = res;
               checkedKeys.forEach((v) => {
                 this.$nextTick(() => {
                   this.$refs.menu.setChecked(v, true, false);
@@ -663,12 +663,12 @@ export default {
       this.getDeptTreeselect();
       const roleDeptTreeselect = this.getRoleDeptTreeselect(row.id);
       getRole(row.id).then((res) => {
-        this.form = res.result;
+        this.form = res;
         this.form.dataScope = this.form.dataScope + "";
         this.$nextTick(() => {
           roleDeptTreeselect.then((res) => {
-            if (res.result && res.result.length > 0) {
-              this.$refs.dept.setCheckedKeys(res.result);
+            if (res && res.length > 0) {
+              this.$refs.dept.setCheckedKeys(res);
             }
           });
         });

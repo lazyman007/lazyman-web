@@ -317,13 +317,13 @@ export default {
   created() {
     this.getList();
     this.getDicts("sys_normal_disable").then((res) => {
-      this.stateOptions = res.result;
+      this.stateOptions = res;
     });
     this.getDicts("sms_type").then((res) => {
-      this.smsTypeOptions = res.result;
+      this.smsTypeOptions = res;
     });
     this.getDicts("sms_template_category").then((res) => {
-      this.categoryOptions = res.result;
+      this.categoryOptions = res;
     });
   },
   methods: {
@@ -331,8 +331,8 @@ export default {
     getList() {
       this.loading = true;
       listTemplate(this.queryParams).then((res) => {
-        this.templateList = res.result.records;
-        this.total = res.result.total;
+        this.templateList = res.records;
+        this.total = res.total;
         this.loading = false;
       });
     },
@@ -390,7 +390,7 @@ export default {
       this.reset();
       const id = row.id || this.ids;
       getTemplate(id).then((res) => {
-        this.form = res.result;
+        this.form = res;
         this.open = true;
         this.title = "修改模板";
         this.form.state = this.form.state + "";

@@ -257,10 +257,10 @@ export default {
   created() {
     this.getList();
     this.getDicts("sys_show_hide").then(res => {
-      this.visibleOptions = res.result;
+      this.visibleOptions = res;
     });
     this.getDicts("sys_normal_disable").then(res => {
-      this.stateOptions = res.result;
+      this.stateOptions = res;
     });
   },
   methods: {
@@ -272,7 +272,7 @@ export default {
     getList() {
       this.loading = true;
       listMenu(this.queryParams).then(res => {
-        this.menuList = this.handleTree(res.result, "id");
+        this.menuList = this.handleTree(res, "id");
         this.loading = false;
       });
     },
@@ -292,7 +292,7 @@ export default {
       listMenu().then(res => {
         this.menuOptions = [];
         const menu = { id: 0, menuName: '主类目', children: [] };
-        menu.children = this.handleTree(res.result, "id");
+        menu.children = this.handleTree(res, "id");
         this.menuOptions.push(menu);
       });
     },
@@ -357,7 +357,7 @@ export default {
       this.reset();
       this.getTreeselect();
       getMenu(row.id).then(res => {
-        this.form = res.result;
+        this.form = res;
         this.open = true;
         this.title = "修改菜单";
         this.form.isFrame = this.form.isFrame + '';

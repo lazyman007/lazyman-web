@@ -240,7 +240,7 @@ export default {
   created() {
     this.getList();
     this.getDicts("sys_normal_disable").then(res => {
-      this.stateOptions = res.result;
+      this.stateOptions = res;
     });
   },
   methods: {
@@ -248,8 +248,8 @@ export default {
     getList() {
       this.loading = true;
       listType(this.addDateRange(this.queryParams, this.dateRange)).then(res => {
-          this.typeList = res.result.records;
-          this.total = res.result.total;
+          this.typeList = res.records;
+          this.total = res.total;
           this.loading = false;
         }
       );
@@ -303,7 +303,7 @@ export default {
       this.reset();
       const id = row.id || this.ids
       getType(id).then(res => {
-        this.form = res.result;
+        this.form = res;
         this.open = true;
         this.title = "修改字典类型";
         this.form.state = this.form.state + '';

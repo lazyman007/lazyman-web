@@ -286,30 +286,30 @@ export default {
     this.getType(dictId);
     this.getTypeList();
     this.getDicts("sys_normal_disable").then((res) => {
-      this.stateOptions = res.result;
+      this.stateOptions = res;
     });
   },
   methods: {
     /** 查询字典类型详细 */
     getType(dictId) {
       getType(dictId).then((res) => {
-        this.queryParams.dictType = res.result.dictType;
-        this.defaultDictType = res.result.dictType;
+        this.queryParams.dictType = res.dictType;
+        this.defaultDictType = res.dictType;
         this.getList();
       });
     },
     /** 查询字典类型列表 */
     getTypeList() {
       optionselect().then((res) => {
-        this.typeOptions = res.result;
+        this.typeOptions = res;
       });
     },
     /** 查询字典数据列表 */
     getList() {
       this.loading = true;
       listData(this.queryParams).then((res) => {
-        this.dataList = res.result.records;
-        this.total = res.result.total;
+        this.dataList = res.records;
+        this.total = res.total;
         this.loading = false;
       });
     },
@@ -364,7 +364,7 @@ export default {
       this.reset();
       const id = row.id || this.ids;
       getData(id).then((res) => {
-        this.form = res.result;
+        this.form = res;
         this.open = true;
         this.title = "修改字典数据";
         this.form.state = this.form.state + "";

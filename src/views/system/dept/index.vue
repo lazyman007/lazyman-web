@@ -272,7 +272,7 @@ export default {
   created() {
     this.getList();
     this.getDicts("sys_normal_disable").then((res) => {
-      this.stateOptions = res.result;
+      this.stateOptions = res;
     });
   },
   methods: {
@@ -280,7 +280,7 @@ export default {
     getList() {
       this.loading = true;
       listDept(this.queryParams).then((res) => {
-        this.deptList = this.handleTree(res.result, "id");
+        this.deptList = this.handleTree(res, "id");
         this.loading = false;
       });
     },
@@ -336,20 +336,20 @@ export default {
       this.open = true;
       this.title = "添加部门";
       listDept().then((res) => {
-        this.deptOptions = this.handleTree(res.result, "id");
+        this.deptOptions = this.handleTree(res, "id");
       });
     },
     /** 修改按钮操作 */
     handleUpdate(row) {
       this.reset();
       getDept(row.id).then((res) => {
-        this.form = res.result;
+        this.form = res;
         this.open = true;
         this.title = "修改部门";
         this.form.state = this.form.state + "";
       });
       listDeptExcludeChild(row.id).then((res) => {
-        this.deptOptions = this.handleTree(res.result, "id");
+        this.deptOptions = this.handleTree(res, "id");
       });
     },
     /** 提交按钮 */

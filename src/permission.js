@@ -18,7 +18,7 @@ router.beforeEach((to, from, next) => {
     } else {
       if (store.getters.roles.length === 0) {
         store.dispatch('GetInfo').then(res => {
-          const roles = res.result.roles
+          const roles = res.roles
           store.dispatch('GenerateRoutes', { roles }).then(accessRoutes => {
             router.addRoutes(accessRoutes) // 动态添加可访问路由表
             next({ ...to, replace: true }) // hack方法 确保addRoutes已完成

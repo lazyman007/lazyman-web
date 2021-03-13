@@ -309,7 +309,7 @@ export default {
   created() {
     this.getList();
     this.getDicts("sys_yes_no").then((res) => {
-      this.typeOptions = res.result;
+      this.typeOptions = res;
     });
   },
   methods: {
@@ -318,8 +318,8 @@ export default {
       this.loading = true;
       listConfig(this.addDateRange(this.queryParams, this.dateRange)).then(
         (res) => {
-          this.configList = res.result.records;
-          this.total = res.result.total;
+          this.configList = res.records;
+          this.total = res.total;
           this.loading = false;
         }
       );
@@ -373,7 +373,7 @@ export default {
       this.reset();
       const id = row.id || this.ids;
       getConfig(id).then((res) => {
-        this.form = res.result;
+        this.form = res;
         this.open = true;
         this.title = "修改参数";
         this.form.state = this.form.state + "";

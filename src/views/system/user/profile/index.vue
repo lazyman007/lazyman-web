@@ -84,17 +84,17 @@ export default {
   methods: {
     getUser() {
       getUserProfile().then((res) => {
-        this.user = res.result.user;
-        this.dept = res.result.dept;
-        if (res.result.roles) {
-          this.roles = res.result.roles
+        this.user = res.user;
+        this.dept = res.dept;
+        if (res.roles) {
+          this.roles = res.roles
             .map((item, index) => {
               return item.roleName;
             })
             .join(",");
         }
-        if (res.result.posts) {
-          this.posts = res.result.posts
+        if (res.posts) {
+          this.posts = res.posts
             .map((item, index) => {
               return item.postName;
             })
