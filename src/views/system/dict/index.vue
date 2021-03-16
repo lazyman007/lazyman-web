@@ -273,7 +273,6 @@ export default {
         remark: undefined
       };
       this.resetForm("form");
-      this.dateRange = [];
     },
     /** 搜索按钮操作 */
     handleQuery() {
@@ -283,6 +282,7 @@ export default {
     /** 重置按钮操作 */
     resetQuery() {
       this.dateRange = [];
+      this.queryParams = {};
       this.resetForm("queryForm");
       this.handleQuery();
     },

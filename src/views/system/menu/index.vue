@@ -330,7 +330,6 @@ export default {
         state: "true"
       };
       this.resetForm("form");
-      this.dateRange = [];
     },
     /** 搜索按钮操作 */
     handleQuery() {

@@ -356,7 +356,6 @@ export default {
     getList() {
       this.loading = true;
       listChannel(this.queryParams).then((res) => {
-        console.log(res)
         this.channelList = res.records;
         this.total = res.total;
         this.loading = false;
@@ -392,7 +391,6 @@ export default {
         remark: undefined,
       };
       this.resetForm("form");
-      this.dateRange = [];
     },
     /** 搜索按钮操作 */
     handleQuery() {

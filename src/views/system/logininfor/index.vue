@@ -222,6 +222,8 @@ export default {
     },
     /** 搜索按钮操作 */
     handleQuery() {
+      this.dateRange = [];
+      this.queryParams.dateRange = [];
       this.queryParams.pageNo = 1;
       this.getList();
     },

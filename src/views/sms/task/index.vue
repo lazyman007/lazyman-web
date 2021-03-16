@@ -92,12 +92,12 @@
       <el-table-column label="内容" align="center" prop="content" :show-overflow-tooltip="true" />
       <el-table-column label="状态" align="center" prop="state" :formatter="stateFormat" />
       <el-table-column label="发送时间" align="center" prop="sendTime" width="180">
-        <task slot-scope="scope">
+        <template slot-scope="scope">
           <span>{{ parseTime(scope.row.sendTime) }}</span>
-        </task>
+        </template>
       </el-table-column>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
-        <task slot-scope="scope">
+        <template slot-scope="scope">
           <el-button
             size="mini"
             type="text"
@@ -105,7 +105,7 @@
             @click="handleDelete(scope.row)"
             v-hasPermi="['sms:task:remove']"
           >删除</el-button>
-        </task>
+        </template>
       </el-table-column>
     </el-table>
     
@@ -189,14 +189,11 @@ export default {
     reset() {
       this.form = {
         id: undefined,
-        taskCode: undefined,
-        taskName: undefined,
-        sort: 0,
-        state: "true",
-        remark: undefined
+        mobile: undefined,
+        templateCategory: undefined,
+        state: undefined
       };
       this.resetForm("form");
-      this.dateRange = [];
     },
     /** 搜索按钮操作 */
     handleQuery() {
@@ -205,6 +202,8 @@ export default {
     },
     /** 重置按钮操作 */
     resetQuery() {
+      this.dateRange = [];
+      this.queryParams = {};
       this.resetForm("queryForm");
       this.handleQuery();
     },
