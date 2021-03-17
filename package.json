@@ -33,11 +33,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/y_project/RuoYi-Vue.git"
+    "url": "git@github.com:lazyman007/lazyman-web.git"
   },
   "dependencies": {
     "@riophae/vue-treeselect": "0.4.0",
-    "axios": "0.21.0",
+    "axios": "0.21.1",
     "clipboard": "2.0.6",
     "core-js": "3.8.1",
     "echarts": "4.9.0",
