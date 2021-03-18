@@ -141,11 +141,7 @@
         width="150"
       />
       <el-table-column label="显示顺序" prop="sort" width="100" />
-      <el-table-column
-        label="状态"
-        align="center"
-        width="100"
-      >
+      <el-table-column label="状态" align="center" width="100">
         <template slot-scope="scope">
           <el-switch
             v-model="scope.row.state"
@@ -504,7 +500,7 @@ export default {
     },
     // 角色状态修改
     handleStatusChange(row) {
-      let text = !row.state ? "启用" : "停用";
+      let text = row.state === "true" ? "启用" : "停用";
       this.$confirm(
         '确认要"' + text + '""' + row.roleName + '"角色吗?',
         "警告",

@@ -650,7 +650,7 @@ export default {
     },
     // 用户状态修改
     handleStateChange(row) {
-      let text = !row.state ? "启用" : "停用";
+      let text = row.state === "true" ? "启用" : "停用";
       this.$confirm(
         '确认要"' + text + '""' + row.username + '"用户吗?',
         "警告",
