@@ -460,9 +460,6 @@ export default {
         }
       );
     },
-    stateFormat(row, column) {
-      return this.selectDictLabel(this.stateOptions, row.state);
-    },
     /** 查询菜单树结构 */
     getMenuTreeselect() {
       menuTreeselect().then((res) => {
