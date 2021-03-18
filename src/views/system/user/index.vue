@@ -209,15 +209,8 @@
           <el-table-column
             label="状态"
             align="center"
-            prop="state"
-            :formatter="stateFormat"
-            v-if="columns[4].visible"
-          />
-          <el-table-column
-            label="状态操作"
-            align="center"
             key="state"
-            v-hasPermi="['system:user:state']"
+            v-if="columns[4].visible"
           >
             <template slot-scope="scope">
               <el-switch
@@ -225,7 +218,7 @@
                 active-value="true"
                 inactive-value="false"
                 @change="handleStateChange(scope.row)"
-                v-hasPermi="['system:user:state']"
+                v-hasPermi="['system:user:edit']"
               ></el-switch>
             </template>
           </el-table-column>
@@ -628,9 +621,6 @@ export default {
           this.loading = false;
         }
       );
-    },
-    stateFormat(row, column) {
-      return this.selectDictLabel(this.stateOptions, row.state);
     },
     /** 查询部门下拉树结构 */
     getTreeselect() {

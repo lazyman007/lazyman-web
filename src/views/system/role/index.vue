@@ -144,14 +144,7 @@
       <el-table-column
         label="状态"
         align="center"
-        prop="state"
-        :formatter="stateFormat"
-      />
-      <el-table-column
-        label="状态操作"
-        align="center"
         width="100"
-        v-hasPermi="['system:role:state']"
       >
         <template slot-scope="scope">
           <el-switch
@@ -159,7 +152,7 @@
             active-value="true"
             inactive-value="false"
             @change="handleStatusChange(scope.row)"
-            v-hasPermi="['system:role:state']"
+            v-hasPermi="['system:role:edit']"
           ></el-switch>
         </template>
       </el-table-column>
