@@ -113,16 +113,17 @@
       :data="dataList"
       @selection-change="handleSelectionChange"
     >
-      <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="字典编码" align="center" prop="id" />
+      <el-table-column type="selection" width="50" align="center" />
+      <el-table-column label="字典编码" align="center" prop="id" width="160"/>
       <el-table-column label="字典标签" align="center" prop="dictLabel" />
       <el-table-column label="字典键值" align="center" prop="dictValue" />
-      <el-table-column label="字典排序" align="center" prop="sort" />
+      <el-table-column label="字典排序" align="center" prop="sort" width="80"/>
       <el-table-column
         label="状态"
         align="center"
         prop="state"
         :formatter="stateFormat"
+        width="80"
       />
       <el-table-column
         label="备注"
@@ -134,7 +135,6 @@
         label="创建时间"
         align="center"
         prop="createTime"
-        width="180"
       >
         <template slot-scope="scope">
           <span>{{ parseTime(scope.row.createTime) }}</span>

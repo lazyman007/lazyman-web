@@ -84,14 +84,14 @@
     </el-row>
 
     <el-table v-loading="loading" :data="taskList" @selection-change="handleSelectionChange">
-      <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="记录编号" align="center" prop="id" />
-      <el-table-column label="批次号" align="center" prop="batchId" />
+      <el-table-column type="selection" width="50" align="center" />
+      <el-table-column label="记录编号" align="center" prop="id" width="160"/>
+      <el-table-column label="批次号" align="center" prop="batchId" width="160"/>
       <el-table-column label="模板分类" align="center" prop="templateCategory" :formatter="categoryFormat" />
-      <el-table-column label="手机号" align="center" prop="mobile" />
+      <el-table-column label="手机号" align="center" prop="mobile" width="120"/>
       <el-table-column label="内容" align="center" prop="content" :show-overflow-tooltip="true" />
-      <el-table-column label="状态" align="center" prop="state" :formatter="stateFormat" />
-      <el-table-column label="发送时间" align="center" prop="sendTime" width="180">
+      <el-table-column label="状态" align="center" prop="state" :formatter="stateFormat" width="80"/>
+      <el-table-column label="发送时间" align="center" prop="sendTime">
         <template slot-scope="scope">
           <span>{{ parseTime(scope.row.sendTime) }}</span>
         </template>

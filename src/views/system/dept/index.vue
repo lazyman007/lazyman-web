@@ -72,20 +72,18 @@
       <el-table-column
         prop="deptName"
         label="部门名称"
-        width="260"
       ></el-table-column>
-      <el-table-column prop="sort" label="排序" width="200"></el-table-column>
+      <el-table-column prop="sort" label="排序" width="80"></el-table-column>
       <el-table-column
         prop="state"
         label="状态"
         :formatter="stateFormat"
-        width="100"
+        width="80"
       ></el-table-column>
       <el-table-column
         label="创建时间"
         align="center"
         prop="createTime"
-        width="200"
       >
         <template slot-scope="scope">
           <span>{{ parseTime(scope.row.createTime) }}</span>

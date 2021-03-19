@@ -82,13 +82,13 @@
     </el-row>
 
     <el-table v-loading="loading" :data="postList" @selection-change="handleSelectionChange">
-      <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="岗位编号" align="center" prop="id" />
+      <el-table-column type="selection" width="50" align="center" />
+      <el-table-column label="岗位编号" align="center" prop="id" width="160"/>
       <el-table-column label="岗位编码" align="center" prop="postCode" />
       <el-table-column label="岗位名称" align="center" prop="postName" />
-      <el-table-column label="岗位排序" align="center" prop="sort" />
-      <el-table-column label="状态" align="center" prop="state" :formatter="stateFormat" />
-      <el-table-column label="创建时间" align="center" prop="createTime" width="180">
+      <el-table-column label="岗位排序" align="center" prop="sort" width="80"/>
+      <el-table-column label="状态" align="center" prop="state" :formatter="stateFormat" width="80"/>
+      <el-table-column label="创建时间" align="center" prop="createTime">
         <template slot-scope="scope">
           <span>{{ parseTime(scope.row.createTime) }}</span>
         </template>

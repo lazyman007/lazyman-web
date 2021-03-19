@@ -92,8 +92,8 @@
       :data="noticeList"
       @selection-change="handleSelectionChange"
     >
-      <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="序号" align="center" prop="id" width="100" />
+      <el-table-column type="selection" width="50" align="center" />
+      <el-table-column label="编号" align="center" prop="id" width="160" />
       <el-table-column
         label="公告标题"
         align="center"
@@ -105,26 +105,23 @@
         align="center"
         prop="noticeType"
         :formatter="typeFormat"
-        width="100"
       />
       <el-table-column
         label="状态"
         align="center"
         prop="state"
         :formatter="stateFormat"
-        width="100"
+        width="80"
       />
       <el-table-column
         label="创建者"
         align="center"
         prop="createBy"
-        width="100"
       />
       <el-table-column
         label="创建时间"
         align="center"
         prop="createTime"
-        width="100"
       >
         <template slot-scope="scope">
           <span>{{ parseTime(scope.row.createTime, "{y}-{m}-{d}") }}</span>

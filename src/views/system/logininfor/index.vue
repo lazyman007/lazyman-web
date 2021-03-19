@@ -114,28 +114,25 @@
       :data="list"
       @selection-change="handleSelectionChange"
     >
-      <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="访问编号" align="center" prop="id" />
+      <el-table-column type="selection" width="50" align="center" />
+      <el-table-column label="访问编号" align="center" prop="id" width="160"/>
       <el-table-column label="用户名称" align="center" prop="username" />
       <el-table-column
         label="IP地址"
         align="center"
         prop="ipAddr"
-        width="130"
         :show-overflow-tooltip="true"
       />
       <el-table-column
         label="操作系统"
         align="center"
         prop="os"
-        width="130"
         :show-overflow-tooltip="true"
       />
       <el-table-column
         label="浏览器"
         align="center"
         prop="browser"
-        width="130"
         :show-overflow-tooltip="true"
       />
       <el-table-column
@@ -143,13 +140,13 @@
         align="center"
         prop="state"
         :formatter="stateFormat"
+        width="80"
       />
       <el-table-column label="描述" align="center" prop="remark" />
       <el-table-column
         label="访问时间"
         align="center"
         prop="createTime"
-        width="180"
       >
         <template slot-scope="scope">
           <span>{{ parseTime(scope.row.createTime) }}</span>

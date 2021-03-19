@@ -132,8 +132,8 @@
       :data="channelList"
       @selection-change="handleSelectionChange"
     >
-      <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="通道编号" align="center" prop="id" />
+      <el-table-column type="selection" width="50" align="center" />
+      <el-table-column label="通道编号" align="center" prop="id" width="160"/>
       <el-table-column label="通道名称" align="center" prop="channelName" />
       <el-table-column
         label="短信类型"
@@ -153,12 +153,12 @@
         align="center"
         prop="state"
         :formatter="stateFormat"
+        width="80"
       />
       <el-table-column
         label="创建时间"
         align="center"
         prop="createTime"
-        width="180"
       >
         <template slot-scope="scope">
           <span>{{ parseTime(scope.row.createTime) }}</span>

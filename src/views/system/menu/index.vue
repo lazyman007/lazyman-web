@@ -46,13 +46,13 @@
       row-key="id"
       :tree-props="{children: 'children', hasChildren: 'hasChildren'}"
     >
-      <el-table-column prop="menuName" label="菜单名称" :show-overflow-tooltip="true" width="160"></el-table-column>
-      <el-table-column prop="icon" label="图标" align="center" width="100">
+      <el-table-column prop="menuName" label="菜单名称" :show-overflow-tooltip="true"></el-table-column>
+      <el-table-column prop="icon" label="图标" align="center">
         <template slot-scope="scope">
           <svg-icon :icon-class="scope.row.icon" />
         </template>
       </el-table-column>
-      <el-table-column prop="sort" label="排序" width="60"></el-table-column>
+      <el-table-column prop="sort" label="排序" width="80"></el-table-column>
       <el-table-column prop="menuCode" label="权限标识" :show-overflow-tooltip="true"></el-table-column>
       <el-table-column prop="component" label="组件路径" :show-overflow-tooltip="true"></el-table-column>
       <el-table-column prop="state" label="状态" :formatter="statusFormat" width="80"></el-table-column>
