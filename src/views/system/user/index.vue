@@ -173,6 +173,7 @@
             key="id"
             prop="id"
             v-if="columns[0].visible"
+            width="160"
           />
           <el-table-column
             label="用户名称"
@@ -211,6 +212,7 @@
             align="center"
             key="state"
             v-if="columns[4].visible"
+            width="80"
           >
             <template slot-scope="scope">
               <el-switch
@@ -227,7 +229,6 @@
             align="center"
             prop="createTime"
             v-if="columns[5].visible"
-            width="160"
           >
             <template slot-scope="scope">
               <span>{{ parseTime(scope.row.createTime) }}</span>
